@@ -1,0 +1,1 @@
+mysqldump --opt --where=1 limit 100 -u root -p demidov_db person demidov_db.sql
