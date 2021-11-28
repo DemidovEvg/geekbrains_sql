@@ -131,7 +131,6 @@ alter table photos add constraint fk_phoyls_media_id foreign key (media_id) refe
 -- =======================================
 -- =======Homework========================
 -- =======================================
-drop table friends;
 
 create table messages(
 	id serial,
@@ -146,9 +145,6 @@ create table messages(
 	foreign key (id1) references users (id)
 )
 
-
-
-drop table cities;
 
 create table cities(
 	id serial,
