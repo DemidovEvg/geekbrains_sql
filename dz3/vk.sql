@@ -9,13 +9,13 @@ drop table if exists users;
 create table if not exists users(
 	id bigint unsigned not null auto_increment primary key,
 	firstname varchar(50),
-	lastname varchar(50) comment '‘‡ÏËÎËˇ',
+	lastname varchar(50) comment '–§–∞–º–∏–ª–∏—è',
 	email varchar(120) unique,
 	password_hash varchar(100),
 	phone bigint unsigned unique,
 	
 	index users_firstname_lastname_idx (firstname, lastname)
-)
+);
 
 drop table if exists profiles;
 
@@ -80,7 +80,7 @@ create table media_types(
 	name varchar(255),
 	created_at datetime default now(),
 	updated_at datetime on update now()
-)
+);
 
 create table media(
 	id serial,
@@ -128,23 +128,13 @@ alter table photos add constraint fk_photos_album_id foreign key (album_id) refe
 
 alter table photos add constraint fk_phoyls_media_id foreign key (media_id) references media(id);
 
+ALTER TABLE vk.profiles 
+ADD CONSTRAINT profiles_fk_1 
+FOREIGN KEY (photo_id) REFERENCES media(id);
+
 -- =======================================
 -- =======Homework========================
 -- =======================================
-
-create table messages(
-	id serial,
-	from_user_id bigint unsigned not null,
-	to_user_id bigint unsigned not null,
-	mess text,
-
-	
-	primary key (id1, id2),
-	check (id1 <> id2),
-	foreign key (id1) references users (id),
-	foreign key (id1) references users (id)
-)
-
 
 create table cities(
 	id serial,
@@ -191,7 +181,7 @@ create table brothers_sisters (
 	check (user_id1 <> user_id2),
 	foreign key (user_id1) references users (id),
 	foreign key (user_id2) references users (id)
-)
+);
 
 
 
